@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmi6d28mysbyo"]
+[gd_scene load_steps=3 format=3 uid="uid://dmi6d28mysbyo"]
 
 [ext_resource type="PackedScene" uid="uid://drcc7n4yivb6j" path="res://prefabs/player.tscn" id="1_r5d3l"]
+[ext_resource type="PackedScene" uid="uid://dp0ty0dlaf5dt" path="res://prefabs/laser.tscn" id="2_lkaym"]
 
 [node name="game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_r5d3l")]
 position = Vector2(40, 320)
+
+[node name="laser" parent="." instance=ExtResource("2_lkaym")]
+position = Vector2(80, 320)

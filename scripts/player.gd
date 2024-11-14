@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var laser_prefab = preload("res://prefabs/laser.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,3 +17,7 @@ func _process(delta: float) -> void:
 		position.x += 10
 	if Input.is_action_pressed("player_back") and position.x > 50:
 		position.x -= 10
+	if Input.is_action_just_pressed("player_shoot"):
+		var laser = laser_prefab.instantiate()
+		laser.position = position
+		get_parent().add_child(laser)
