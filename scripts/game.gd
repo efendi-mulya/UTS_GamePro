@@ -17,4 +17,4 @@ func _on_enemy_timer_timeout() -> void:
 	
 	var random_y = randi_range(30,620)
 	enemy.position = Vector2(1100,random_y)
-	add_child(enemy)# Replace with function body.
+	add_child(enemy)

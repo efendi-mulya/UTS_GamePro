@@ -1,12 +1,19 @@
 extends Area2D
 
 @export var speed = 2
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var explosion_prefab = preload("res://prefabs/explosion.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x -= speed
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is laser:
+		#print(area.name)
+		var explosion = explosion_prefab.instantiate()
+		explosion.position = position
+		get_parent().add_child(explosion)
+		queue_free()
+		area.queue_free()

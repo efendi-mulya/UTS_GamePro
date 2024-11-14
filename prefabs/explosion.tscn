@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://4271ms1qjmsg"]
+
+[ext_resource type="Texture2D" uid="uid://cblf8cxiwc7m2" path="res://kenney_space-shooter-redux/PNG/Effects/star1.png" id="1_s5g1w"]
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="1_tcf0k"]
+[ext_resource type="AudioStream" uid="uid://b42oc45nvosfo" path="res://kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg" id="2_e1axf"]
+
+[sub_resource type="Gradient" id="Gradient_q073l"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5wa0n"]
+gradient = SubResource("Gradient_q073l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t55nc"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_5wa0n")
+
+[sub_resource type="GDScript" id="GDScript_8mw0u"]
+script/source = "extends GPUParticles2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="explosion" type="Node2D"]
+script = ExtResource("1_tcf0k")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_t55nc")
+texture = ExtResource("1_s5g1w")
+one_shot = true
+explosiveness = 1.0
+script = SubResource("GDScript_8mw0u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e1axf")
+autoplay = true

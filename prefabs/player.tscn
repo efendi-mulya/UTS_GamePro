@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drcc7n4yivb6j"]
+[gd_scene load_steps=5 format=3 uid="uid://drcc7n4yivb6j"]
 
 [ext_resource type="Texture2D" uid="uid://tynfunvd44ic" path="res://kenney_space-shooter-redux/PNG/playerShip3_blue.png" id="1_iw01a"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sb6rb"]
+[ext_resource type="AudioStream" uid="uid://rwqctsijj0n8" path="res://kenney_space-shooter-redux/Bonus/sfx_laser2.ogg" id="3_0valx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls3vv"]
 size = Vector2(38, 50)
@@ -16,3 +17,6 @@ texture = ExtResource("1_iw01a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ls3vv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0valx")
