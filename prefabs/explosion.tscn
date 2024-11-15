@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cblf8cxiwc7m2" path="res://kenney_space-shooter-redux/PNG/Effects/star1.png" id="1_s5g1w"]
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_tcf0k"]
-[ext_resource type="AudioStream" uid="uid://b42oc45nvosfo" path="res://kenney_space-shooter-redux/Bonus/sfx_twoTone.ogg" id="2_e1axf"]
+[ext_resource type="AudioStream" uid="uid://v4gke7x0ixi0" path="res://kenney_space-shooter-redux/Bonus/sfx_lose.ogg" id="3_p5by5"]
 
 [sub_resource type="Gradient" id="Gradient_q073l"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -50,5 +50,5 @@ explosiveness = 1.0
 script = SubResource("GDScript_8mw0u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_e1axf")
+stream = ExtResource("3_p5by5")
 autoplay = true

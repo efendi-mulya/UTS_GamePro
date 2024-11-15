@@ -30,3 +30,12 @@ func _update_ui() -> void:
 func _om_enemy_killed() -> void:
 	score += 1
 	_update_ui()
+
+
+func _on_player_player_killed() -> void:
+	$restart_timer.start()
+	pass
+
+
+func _on_restart_timer_timeout() -> void:
+	get_tree().reload_current_scene()

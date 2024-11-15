@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwi842udib481"]
+
+[ext_resource type="Script" path="res://scripts/enemy_laser.gd" id="1_xpcev"]
+[ext_resource type="Texture2D" uid="uid://bi63jrg5qmf62" path="res://kenney_space-shooter-redux/PNG/Lasers/laserRed08.png" id="2_grv25"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ly2hc"]
+radius = 12.0
+
+[node name="enemy_laser" type="Area2D"]
+script = ExtResource("1_xpcev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_grv25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ly2hc")
