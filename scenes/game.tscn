@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmi6d28mysbyo"]
+[gd_scene load_steps=6 format=3 uid="uid://dmi6d28mysbyo"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_caby5"]
 [ext_resource type="PackedScene" uid="uid://drcc7n4yivb6j" path="res://prefabs/player.tscn" id="1_r5d3l"]
+[ext_resource type="Texture2D" uid="uid://djgyxrkhneidt" path="res://kenney_space-shooter-redux/Backgrounds/black.png" id="2_8djjq"]
 [ext_resource type="Theme" uid="uid://bk8dria67u3u1" path="res://new_theme.tres" id="3_but2u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v422j"]
+texture = ExtResource("2_8djjq")
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_caby5")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v422j")
 
 [node name="player" parent="." instance=ExtResource("1_r5d3l")]
 position = Vector2(40, 320)
