@@ -2,7 +2,8 @@ extends Area2D
 
 @onready var laser_prefab = preload("res://prefabs/laser.tscn")
 @onready var explosion_prefab = preload("res://prefabs/explosion.tscn")
-signal player_killed
+
+#signal player_killed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,5 +27,5 @@ func _on_area_entered(area: Area2D) -> void:
 		var explosion = explosion_prefab.instantiate()
 		explosion.position = position
 		get_parent().add_child(explosion)
-		queue_free()
-		player_killed.emit()
+		#queue_free()
+		#player_killed.emit()
